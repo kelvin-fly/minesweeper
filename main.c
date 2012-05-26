@@ -10,6 +10,7 @@
 #define FLAG 1 << 4
 
 #define MINE_CHAR 4
+#define BOOM_CHAR 15
 #define MASK_CHAR 177
 #define CLEARED_CHAR 2
 #define FLAG_CHAR 'F'
@@ -29,7 +30,7 @@
 #define PRINT_EMPTY() printf("%-3c", EMPTY_CHAR)
 #define PRINT_MASK() printf("%c%c%c", MASK_CHAR, MASK_CHAR, MASK_CHAR)
 #define PRINT_CLEARED() printf("%-3c", CLEARED_CHAR)
-#define PRINT_BOOM() printf("%-3c", 15)
+#define PRINT_BOOM() printf("%-3c", BOOM_CHAR)
 #define PRINT_FLAG() printf("%-3c", FLAG_CHAR)
 
 char field[VSIZE][HSIZE];
