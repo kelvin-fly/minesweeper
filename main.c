@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define VSIZE 18
-#define HSIZE 18
+#define VSIZE 14
+#define HSIZE 14
 #define MINE_CHANCE 10
 
 #define MINE 1 << 6
@@ -38,18 +38,27 @@ char field[VSIZE][HSIZE];
 void printfield(void (*f)(int, int)) {
 	int r, c;
 
+	printf("\n    ");
 	for (c = 0; c < HSIZE; c++)
 		printf("%-3d", c+1);
-	printf("\n");
+	printf("\n   .");
 	for (c = 0; c < HSIZE; c++)
 		printf("---", c+1);
 	printf(".\n");
 
 	for (r = 0; r < VSIZE; r++) {
+		printf("%3d|", r+1);
 		for (c = 0; c < HSIZE; c++)
 			f(r, c);
 		printf("| %d\n", r+1);
 	}
+	printf("   '");
+	for (c = 0; c < HSIZE; c++)
+		printf("---", c+1);
+	printf("'\n    ");
+	for (c = 0; c < HSIZE; c++)
+		printf("%-3d", c+1);
+	printf("\n\n");
 }
 
 void raw(int r, int c) {
